@@ -1,12 +1,3 @@
-// const port = 3000
-// const app = require('./app')
-// const { db } = require('./db')
-
-// // Start the database, then start the server
-// db.sync().then(() => {
-//   app.listen(port, () => console.log(`listening on port ${port}`))
-// })
-
 import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
@@ -27,14 +18,8 @@ camera.position.setZ(30)
 
 renderer.render( scene, camera )
 
-// Next we will make our first object:
-// Three main considerations when making an object:
-//    1. Geometry: (a point of three vectors) -- threejs has a lot of built in geometries
-//    2. Material: the wrapping paper for the object. 
-//    3. Mesh: combines the geometry and the material
-
+// Torus object definition:
 const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 )
-// material is where you light the object. if you want to have a non lit object you can render with .MeshBasicMaterial instead
 const material = new THREE.MeshStandardMaterial( { color: 0xFF6347 })
 const torus = new THREE.Mesh( geometry, material )
 scene.add(torus)
@@ -141,29 +126,3 @@ function animate() {
 }
 
 animate()
-
-
-// BELOW IS THE STARTER CODE FROM VITE:
-// import './style.css'
-// import javascriptLogo from './javascript.svg'
-// import { setupCounter } from './counter.js'
-
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vitejs.dev" target="_blank">
-//       <img src="/vite.svg" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
-
-// setupCounter(document.querySelector('#counter'))
